@@ -4,12 +4,10 @@
 #input parameters: input_list
 
 def contains_odd(input_list):
-    res = False
     for xc in input_list:
         if xc%2 != 0:
-            res = True
-            return res
-    return res
+            return True
+    return False
 
 #Create a function that accepts a list of integers, and returns a list of bool.
 #The return list should be a "mask" and indicate whether the list element is odd or not.
@@ -19,11 +17,12 @@ def contains_odd(input_list):
 #input parameters: input_list
 
 def is_odd(input_list):
-    res = []
-    for xc in input_list:
-        if xc%2 != 0:
-            res.append(True)
-        res.append(False)
+    res = list(map(lambda x: x%2!=0, input_list))
+#    for xc in input_list:
+ #       if xc%2 != 0:
+  #          res.append(True)
+   #     else:
+    #        res.append(False)
     return res
 
 #Create a function that accpects 2 lists of integers and returns their element wise sum. <br>
@@ -33,10 +32,7 @@ def is_odd(input_list):
 #input parameters: input_list_1, input_list_2
 
 def element_wise_sum(input_list_1, input_list_2):
-    res = []
-    for xc in input_list_1:
-        for i in input_list_2:
-            res.append(xc+i)
+    res = list(map(lambda x,y: x+y, input_list_1, input_list_2))
     return res
 
 #Create a function that accepts a dictionary and returns its items as a list of tuples
@@ -46,7 +42,7 @@ def element_wise_sum(input_list_1, input_list_2):
 #input parameters: input_dict
 
 def dict_to_list(input_dict):
-    res = []
-    for xc in input_dict:
-        res.append("(",xc.key,",",xc.value,")")
+    res = [(k,v) for k,v in input_dict.items()]
+    #for xc in input_dict:
+    #    res.append(tuple(xc.key, xc.value))
     return res
