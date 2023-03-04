@@ -21,13 +21,9 @@ def subset(input_list, start_index, end_index):
 #input parameters: input_list,step_size
 
 # %%
-#2
+#2 0. is legyen benne :)
 def every_nth(input_list,step_size):
-    res = input_list[step_size-1::step_size]
-#    cnt= step_size-1
-#    while cnt <= input_list.len():
-#        res.append(cnt)
-#        cnt+= step_size
+    res = input_list[::step_size]
     return res 
 
 # %%
