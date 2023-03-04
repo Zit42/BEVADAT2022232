@@ -6,8 +6,9 @@
 #input parameters: input_list,start_index,end_index
 
 # %%
+#1
 def subset(input_list, start_index, end_index):
-    res = input_list[start_index, end_index+1]
+    res = input_list[start_index: end_index+1]
 #    while start_index <= end_index:
 #        res.append(input_list[start_index])
 #        start_index+=1
@@ -20,6 +21,7 @@ def subset(input_list, start_index, end_index):
 #input parameters: input_list,step_size
 
 # %%
+#2
 def every_nth(input_list,step_size):
     res = input_list[step_size-1::step_size]
 #    cnt= step_size-1
@@ -35,6 +37,7 @@ def every_nth(input_list,step_size):
 #input parameters: input_list
 
 # %%
+#3
 def unique(input_list):
     return len(set(input_list))==len(input_list)
 
@@ -45,6 +48,7 @@ def unique(input_list):
 #input parameters: input_list
 
 # %%
+#4
 def flatten(input_list):
     res = [x for li in input_list for x in li]
     return res 
@@ -57,6 +61,7 @@ def flatten(input_list):
 
 
 # %%
+#5
 def merge_lists(*args):
     res = []
     for xc in args:
@@ -71,6 +76,7 @@ def merge_lists(*args):
 #input parameters: input_list
 
 # %%
+#6
 def reverse_tuples(input_list):
     res = list(map(lambda x: tuple(x[1],x[0]), input_list))
     return res
@@ -82,6 +88,7 @@ def reverse_tuples(input_list):
 #input parameters: input_list
 
 # %%
+#7
 def remove_tuplicates(input_list):
     return list(set(input_list))
 
@@ -92,6 +99,7 @@ def remove_tuplicates(input_list):
 #input parameters: input_list
 
 # %%
+#8
 def transpose(input_list):
     res = [list(x) for x in zip(*input_list)]
     return res
@@ -104,6 +112,7 @@ def transpose(input_list):
 #input parameters: input_list,chunk_size
 
 # %%
+#9
 def split_into_chunks(input_list,chunk_size):
     xc = [x for li in input_list for x in li]
     return([xc[x:x+chunk_size] for x in range(0,len(xc),chunk_size)])
@@ -115,6 +124,7 @@ def split_into_chunks(input_list,chunk_size):
 #input parameters: *dict
 
 # %%
+#10
 def merge_dicts(*dict):
     res = {}
     for xc in dict:
@@ -129,6 +139,7 @@ def merge_dicts(*dict):
 #input parameters: input_list
 
 # %%
+#11
 def by_parity(input_list):
     ev=[]
     o=[]
@@ -149,6 +160,7 @@ def by_parity(input_list):
 #input parameters: input_dict
 
 # %%
+#12
 def mean_key_value(input_dict):
     for key, value in input_dict.items():
         if value!=0:
