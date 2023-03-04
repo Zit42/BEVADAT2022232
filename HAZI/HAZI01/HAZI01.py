@@ -78,7 +78,7 @@ def merge_lists(*args):
 # %%
 #6
 def reverse_tuples(input_list):
-    res = list(map(lambda x: tuple(x[1],x[0]), input_list))
+    res = list(map(lambda x: (x[1],x[0]), input_list))
     return res
 
 # %%
