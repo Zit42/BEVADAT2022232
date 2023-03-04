@@ -101,7 +101,7 @@ def transpose(input_list):
     return res
 
 # %%
-#Create a function that can split a nested list into chunks
+#Create a function that can split a nested list into chunks sima lista, nem nested a bemenet 
 #chunk size is given by parameter
 #return type: list
 #function name must be: split_into_chunks
@@ -110,8 +110,9 @@ def transpose(input_list):
 # %%
 #9
 def split_into_chunks(input_list,chunk_size):
-    xc = [x for li in input_list for x in li]
-    return([xc[x:x+chunk_size] for x in range(0,len(xc),chunk_size)])
+    if chunk_size ==0:
+        return []
+    return([input_list[x:x+chunk_size] for x in range(0,len(input_list),chunk_size)])
 
 # %%
 #Create a function that can merge n dictionaries
