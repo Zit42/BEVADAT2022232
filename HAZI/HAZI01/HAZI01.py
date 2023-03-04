@@ -4,11 +4,12 @@
 #return type: list
 #function name must be: subset
 #input parameters: input_list,start_index,end_index
+#end index ne legyen benne 
 
 # %%
 #1
 def subset(input_list, start_index, end_index):
-    res = input_list[start_index: end_index+1]
+    res = input_list[start_index: end_index]
 #    while start_index <= end_index:
 #        res.append(input_list[start_index])
 #        start_index+=1
