@@ -80,12 +80,12 @@ def reverse_tuples(input_list):
 # %%
 #Create a function that removes duplicates from a list
 #return type: list
-#fucntion name must be: remove_tuplicates
+#fucntion name must be: ~~remove_tuplicates~~ changed to remove_duplicates 
 #input parameters: input_list
 
 # %%
 #7
-def remove_tuplicates(input_list):
+def remove_duplicates(input_list):
     return list(set(input_list))
 
 # %%
