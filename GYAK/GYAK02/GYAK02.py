@@ -78,6 +78,7 @@ def bool_array(inp: np.array)->np.array:
     return np.array(inp, dtype=bool)
 
 #print(bool_array(np.array([[1, 0, 0], [1, 1, 1],[0, 0, 0]])))
+#print(bool_array(np.array([[],[],[]])))
 
 # %%
 # Készíts egy olyan függvényt, ami a bementként kapott 0 és 1 ből álló tömben a 1 - False-ra az 0 True-ra cserélni
@@ -87,10 +88,12 @@ def bool_array(inp: np.array)->np.array:
 
 # %%
 #6
-def bool_array(inp: np.array)->np.array:
+def invert_bool_array(inp: np.array)->np.array:
     xc=np.array(inp, dtype=bool)
     return np.invert(xc, dtype=bool)
-#print(bool_array([[1, 0, 0], [1, 1, 1],[0, 0, 0]]))
+#print(invert_bool_array([[1, 0, 0], [1, 1, 1],[0, 0, 0]]))
+#print(invert_bool_array(np.array([[]])))
+#print(type(invert_bool_array([])))
 
 # %%
 # Készíts egy olyan függvényt ami a paraméterként kapott array-t kilapítja
@@ -101,6 +104,12 @@ def bool_array(inp: np.array)->np.array:
 
 # %%
 #7
+def flatten(inp: np.array)->np.array:
+    return inp.flatten()
+
+#print(flatten(np.array([[1,2], [3,4]])))
+#print(type(flatten(np.array([[1,2], [3,4]]))))
+#print(flatten(np.array([])))
 
 # %%
 
