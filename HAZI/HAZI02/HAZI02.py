@@ -73,12 +73,11 @@ def get_array_shape(inp: np.array)->str:
 # %%
 #4
 def encode_Y(inp: np.array, cnt:int)->np.array:
-    a=np.zeros((cnt,cnt), int)
-    a[np.arange(len(a)), inp] = 1
+    a=np.squeeze(np.eye(cnt,dtype=int)[inp.reshape(-1)])
     return a
 
-#print(encode_Y([1, 2, 0, 3], 4))
-#print(type(encode_Y([1, 2, 0, 3], 4)))
+#print(encode_Y(np.array([1, 2, 0, 3]), 4))
+#print(type(encode_Y(np.array([1, 2, 0, 3]), 4)))
 
 # %%
 # A fenti feladatnak valósítsd meg a kiértékelését. Adj meg a 2d array-t és adj vissza a decodolt változatát
