@@ -236,8 +236,8 @@ def get_act_date()->np.datetime64:
 #14
 def sec_from_1970()->int:
     xc=np.datetime64('now')
-    #-2mins,+1 hour cuz utc+1 
-    res = xc.astype('datetime64[s]').astype('int')-120+(60*60)
+    #-2mins
+    res = xc.astype('datetime64[s]').astype('int')-120
     return res
 
 #print(sec_from_1970())
