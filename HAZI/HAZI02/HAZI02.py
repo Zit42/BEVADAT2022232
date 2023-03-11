@@ -55,7 +55,15 @@ def compare_two_array(inp1: np.array, inp2:np.array)->np.array:
 #3
 def get_array_shape(inp: np.array)->str:
     shaped = np.shape(inp)
-    return f"sor: {shaped[0]}, oszlop: {shaped[1]}, melyseg: {shaped[2] if len(shaped) == 3 else 1}"
+    match len(shaped):
+        case 1:
+            return f"sor: 1, oszlop: {shaped[0]}, melyseg: 1"
+        case 2:
+            return f"sor: {shaped[0]}, oszlop: {shaped[1]}, melyseg: 1"
+        case 3:
+            return f"sor: {shaped[1]}, oszlop: {shaped[2]}, melyseg: {shaped[0]}"
+        case default:
+            return f"sor: 0, oszlop: 0, melyseg: 0"
 
 #print(get_array_shape(np.array([[1,2,3], [4,5,6]])))
 #print(get_array_shape(np.array([[], []])))
