@@ -31,8 +31,8 @@ def dict_to_dataframe(test_dict: dict )->pd.core.frame.DataFrame:
     return df
 
 df = dict_to_dataframe(stats)
-print(df)
-print(type(df))
+#print(df)
+#print(type(df))
 
 # %%
 '''
@@ -50,8 +50,8 @@ def get_column(data: pd.core.frame.DataFrame, inp: str )->pd.core.series.Series:
     xc = data.copy()
     return xc[inp]
 
-print(get_column(df,'area'))
-print(type(get_column(df,'area')))
+#print(get_column(df,'area'))
+#print(type(get_column(df,'area')))
 
 
 # %%
@@ -70,8 +70,8 @@ def get_top_two(data: pd.core.frame.DataFrame)->pd.core.frame.DataFrame:
     xc = data.copy()
     return xc.nlargest(2,'area')
 
-print(get_top_two(df))
-print(type(get_top_two(df)))
+#print(get_top_two(df))
+#print(type(get_top_two(df)))
 
 
 # %%
@@ -92,8 +92,8 @@ def population_density(data: pd.core.frame.DataFrame)->pd.core.frame.DataFrame:
     xc['density'] = xc['population']/xc['area']
     return xc
 
-print(population_density(df))
-print(type(population_density(df)))
+#print(population_density(df))
+#print(type(population_density(df)))
 
 # %%
 '''
@@ -122,7 +122,7 @@ def plot_population(data: pd.core.frame.DataFrame):
 
     return fig
 
-plot_population(df)
+#plot_population(df)
 
 # %%
 '''
@@ -139,6 +139,4 @@ függvény neve: plot_area
 
 # %%
 #6
-
-
 
