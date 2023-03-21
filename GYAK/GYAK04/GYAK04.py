@@ -139,4 +139,10 @@ függvény neve: plot_area
 
 # %%
 #6
+def plot_area(data: pd.core.frame.DataFrame):
+    xc = data.copy()
+    fig, ax = plt.subplots()
+    ax.set_title('Area of Countries')
+    ax.pie(xc['area'], labels=list(xc['country']))
+    return fig
 
