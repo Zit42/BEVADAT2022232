@@ -27,7 +27,7 @@ def csv_to_df(inp: str )->pd.core.frame.DataFrame:
 
 #print(csv_to_df("StudentsPerformance.csv"))
 #print(type(csv_to_df("StudentsPerformance.csv")))
-df=csv_to_df("StudentsPerformance.csv")
+#df=csv_to_df("StudentsPerformance.csv")
 
 # %%
 '''
