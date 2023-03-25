@@ -224,7 +224,7 @@ def math_bar_plot(inp:  pd.core.frame.DataFrame ):
     xc = xc.groupby('gender', as_index=True).agg({'math score':'mean'})
     ##print(xc)
 
-    ax.bar(['male','female'], xc['math score'])
+    ax.bar(xc.index, xc['math score'])
     ax.set_title('Average Math Score by Gender')
     ax.set_xlabel('Gender')
     ax.set_ylabel('Math Score')
