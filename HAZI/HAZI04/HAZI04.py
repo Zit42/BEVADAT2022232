@@ -103,13 +103,13 @@ függvény neve: average_scores
 #5
 def average_scores(inp:  pd.core.frame.DataFrame )->pd.core.frame.DataFrame:
     xc = inp.copy()
-    a= 'math score'
+    #a= 'math score'
     #xc = xc.groupby('parental level of education', as_index=False).agg(**{
     #    'math score':('math score', 'mean'),
     #    'reading score':('reading score', 'mean'),
     #    'writing score':('writing score', 'mean')
     #})
-    xc = xc.groupby('parental level of education', as_index=False).agg({'math score':'mean','reading score':'mean','writing score': 'mean'})
+    xc = xc.groupby('parental level of education', as_index=True).agg({'math score':'mean','reading score':'mean','writing score': 'mean'})
     #xc= xc.groupby('parental level of education', as_index=False)['math score', 'reading score','writing score' ].mean()
     return xc
 
@@ -221,7 +221,7 @@ def math_bar_plot(inp:  pd.core.frame.DataFrame ):
     xc = inp.copy()
 
     fig, ax = plt.subplots()
-    xc = xc.groupby('gender', as_index=False).agg({'math score':'mean'})
+    xc = xc.groupby('gender', as_index=True).agg({'math score':'mean'})
     ##print(xc)
 
     ax.bar(['male','female'], xc['math score'])
