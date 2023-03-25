@@ -250,7 +250,17 @@ függvény neve: writing_hist
 
 # %%
 #10
+def writing_hist(inp:  pd.core.frame.DataFrame ):
+    xc = inp.copy()
+    fig, ax = plt.subplots()
+    
+    ax.hist(xc['writing score'])
+    ax.set_title('Distribution of Writing Scores')
+    ax.set_xlabel('Writing Score')
+    ax.set_ylabel('Number of Students')
+    return fig
 
+#writing_hist(df)
 
 # %%
 ''' 
