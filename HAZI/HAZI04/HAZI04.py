@@ -279,7 +279,14 @@ függvény neve: ethnicity_pie_chart
 
 # %%
 #11
+def ethnicity_pie_chart(inp:  pd.core.frame.DataFrame ):
+    xc = inp.copy()
+    fig, ax = plt.subplots()
 
+    ax.set_title('Proportion of Students by Race/Ethnicity')
+    cx= xc.groupby('race/ethnicity')['writing score'].count()
+    ax.pie(cx.values, labels=cx.index, autopct='%1.1f%%')
+    return fig
 
 # %%
 
