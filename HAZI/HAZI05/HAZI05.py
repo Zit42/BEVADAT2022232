@@ -55,6 +55,7 @@ class KNNClassifier:
     def best_k(self):
         xc=-1.0
         res=(-1, -1.0)
+        a = self.k
         for i in range (1, 21):
             self.k=i
             self.predict(self.x_test)
@@ -62,5 +63,6 @@ class KNNClassifier:
             if (acc>xc):
                 xc= str(round(acc,2))
                 res = (i, xc)
+        self.k=a 
         return res
 
