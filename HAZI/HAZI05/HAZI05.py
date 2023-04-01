@@ -57,10 +57,10 @@ class KNNClassifier:
         res=(-1, -1.0)
         for i in range (1, 21):
             self.k=i
-            self.predict(self, self.x_test)
-            acc= self.accuracy(self)
+            self.predict(self.x_test)
+            acc= self.accuracy()
             if (acc>xc):
-                xc= acc
+                xc= str(round(acc,2))
                 res = (i, xc)
         return res
 
