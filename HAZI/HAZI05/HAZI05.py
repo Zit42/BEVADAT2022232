@@ -36,7 +36,7 @@ class KNNClassifier:
     def predict(self, x_test: pd.DataFrame):
         labels_pred=[]
         for i, row in x_test.iterrows():
-            distances= self.euclidean(self.x_train, row)
+            distances= self.euclidean(row)
             distances= pd.DataFrame(sorted([list(a) for a in zip(distances, self.y_train)]))
             label_pred = mode(distances[:self.k][1], keepdims=False).mode
             labels_pred.append(label_pred)
