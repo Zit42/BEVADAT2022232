@@ -46,11 +46,14 @@ class KNNClassifier:
         true_positive = (self.y_test == self.y_preds).sum()
         return true_positive / len(self.y_test) * 100
     
-    def plot_confusion_matrix(self):
-        y_preds = pd.DataFrame(self.y_preds)
-        conf_matrix = confusion_matrix(self.y_test, y_preds)
+    def confusion_matrix(self):
+        conf_matrix = confusion_matrix(self.y_test, self.y_preds)
         #sns.heatmap(conf_matrix, annot=True)
         return conf_matrix
+    
+    def plot_confusion_matrix(self):
+        return self.confusion_matrix()
+    #lapon plot_confusion_matrix, tesztnél confusion_matrix
 
     def best_k(self)->Tuple[int, float]:
         xc=-1.0
