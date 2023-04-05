@@ -52,17 +52,18 @@ class KNNClassifier:
         #sns.heatmap(conf_matrix, annot=True)
         return conf_matrix
 
-    def best_k(self):
+    def best_k(self)->Tuple[int, float]:
         xc=-1.0
-        res=(-1, -1.0)
+        res=-1
         a = self.k
         for i in range (1, 21):
             self.k=i
             self.predict(self.x_test)
             acc= self.accuracy()
             if (acc>xc):
-                xc= str(round(acc,2))
-                res = (i, xc)
+                res=self.k
+                xc= acc
+                
         self.k=a 
-        return res
+        return res, round(xc,2)
 
