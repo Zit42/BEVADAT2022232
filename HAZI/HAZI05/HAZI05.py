@@ -37,10 +37,11 @@ class KNNClassifier:
         labels_pred=[]
         for i, row in x_test.iterrows():
             distances= self.euclidean(row)
-            distances= pd.DataFrame(sorted([list(a) for a in zip(distances, self.y_train)]))
-            label_pred = mode(distances[:self.k][1], keepdims=False).mode
+            distances= pd.DataFrame(sorted(zip(distances, self.y_train)))
+            label_pred = distances.iloc[:self.k,1].mode()
             labels_pred.append(label_pred)
-            self.y_preds = pd.array(labels_pred)
+        
+        self.y_preds = pd.DataFrame(labels_pred).iloc[:,0]
 
     def accuracy(self) -> float:
         true_positive = (self.y_test == self.y_preds).sum()
