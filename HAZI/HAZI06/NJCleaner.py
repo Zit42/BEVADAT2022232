@@ -8,13 +8,13 @@ class NJCleaner():
         order = self.data.sort_values(by=['scheduled_time'])
         return order
     
-    def drop_columns_and_nan(self):
+    def drop_columns_and_nan(self)->pd.DataFrame:
         df = self.data.drop(columns=['from'])
         df = self.data.drop(columns=['to'])        
         df = df.dropna()
         return df
 
-    def convert_date_to_day(self):
+    def convert_date_to_day(self)->pd.DataFrame:
         df = self.data
         df['day'] = pd.to_datetime(df['date']).dt.day_name()
         df = df.drop(columns=['date'])
@@ -33,14 +33,30 @@ class NJCleaner():
                                         'night')
         df = self.data.drop(columns=['scheduled_time'])    
         return df 
-
-
-
-
-
-
-    def pred_df(self):
-        pass
-
-
     
+    def convert_delay(self)->pd.DataFrame:
+        df = self.data
+        df['delay'] = df['delay_minutes'].apply(lambda x: 0 if x < 5 else 1)
+        return df
+
+    def drop_unnecessary_columns(self)->pd.DataFrame:
+        df = self.data
+        df = df.drop(columns=['train_id'])
+        df = df.drop(columns=['actual_time'])
+        df = df.drop(columns=['delay_minutes'])
+        return df
+    
+    def save_first_60K( self, path: str):
+        df= self.data.iloc[:60000]
+        df.to_csv(path, index=False)
+
+
+    def prep_df(self, path = 'data/NJ.csv'):
+        self.data = self.order_by_scheduled_time()
+        self.data = self.drop_columns_and_nan()
+        self.data = self.convert_date_to_day()
+        self.data = self.convert_scheduled_time_to_part_of_the_day()
+        self.data = self.convert_delay()
+        self.data = self.drop_unnecessary_columns()
+        self.save_first_60k(path)
+        
