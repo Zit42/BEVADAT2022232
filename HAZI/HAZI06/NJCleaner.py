@@ -10,7 +10,7 @@ class NJCleaner():
     
     def drop_columns_and_nan(self)->pd.DataFrame:
         df = self.data.drop(columns=['from'])
-        df = self.data.drop(columns=['to'])        
+        df = df.drop(columns=['to'])        
         df = df.dropna()
         return df
 
@@ -46,7 +46,7 @@ class NJCleaner():
         df = df.drop(columns=['delay_minutes'])
         return df
     
-    def save_first_60K(self, path: str)->None:
+    def save_first_60k(self, path: str)->None:
         df= self.data.iloc[:60000]
         df.to_csv(path, index=False)
 
@@ -58,5 +58,5 @@ class NJCleaner():
         self.data = self.convert_scheduled_time_to_part_of_the_day()
         self.data = self.convert_delay()
         self.data = self.drop_unnecessary_columns()
-        self.save_first_60K(path)
+        self.save_first_60k(path)
         
