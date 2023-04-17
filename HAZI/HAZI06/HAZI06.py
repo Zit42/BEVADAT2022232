@@ -65,3 +65,52 @@ HAZI-
 ##                                                              ##
 ##################################################################
 """
+
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from src.DecisionTreeClassifier import DecisionTreeClassifier
+from NJCleaner import NJCleaner
+
+#NJCleaner("2018_03.csv").prep_df('Cleaned.csv')
+
+data = pd.read_csv("Cleaned.csv")
+
+X = data.iloc[:, : -1].values
+Y = data.iloc[:, -1].values.reshape(-1, 1)
+x_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=.2, random_state=41)
+
+i=50
+j=11
+classifier = DecisionTreeClassifier(min_samples_split=i, max_depth=j)
+classifier.fit(x_train, Y_train)
+Y_pred = classifier.predict(X_test)
+#print("split:", i, "depth: ", j,accuracy_score(Y_test, Y_pred))
+
+
+"""
+Nehézség, hogy tippem se volt mire kéne fitelni. Ezen kívűl egy-egy fit vagy 1-10 percig fut itt, 
+    szóval nem tudtam hogy elrontottam-e vagy némelyik tényleg ilyen sokáig fut-e.
+
+Valamiért nem tudja behúzni az osztályokat ide, úgyhogy nootbookba raktam be ezt a részt és ide csak átmásoltam, ott működik. 
+
+A legtöbb fit 78-80% közé esett. ( split és depth 2-5 között, majd split 25, 50 és depth 5, 11) 
+
+split: 2, depth: 2, acc: 0.7823333333333333
+split: 2, depth: 3, acc: 0.7839166666666667
+split: 2, depth: 4, acc: 0.7849166666666667
+split: 2, depth: 5, acc: 0.7885833333333333
+split: 3, depth: 2, acc: 0.7823333333333333
+split: 3, depth: 3, acc: 0.7839166666666667
+split: 3, depth: 4, acc: 0.7849166666666667
+split: 3, depth: 5, acc: 0.7885833333333333
+split: 4, depth: 2, acc: 0.7823333333333333
+split: 4, depth: 3, acc: 0.7839166666666667
+split: 4, depth: 4, acc: 0.7849166666666667
+split: 4, depth: 5, acc: 0.7885833333333333
+
+itt nem igazán változtatott a split mérete, csak a depth
+ha a depth 8-10 értéket kapnak, akkor hibát dob 
+split: 50, depth: 11, acc: 0.8026666666666666
+"""
