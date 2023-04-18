@@ -93,7 +93,7 @@ Y_pred = classifier.predict(X_test)
 Nehézség, hogy tippem se volt mire kéne fitelni. Ezen kívűl egy-egy fit vagy 1-10 percig fut itt, 
     szóval nem tudtam hogy elrontottam-e vagy némelyik tényleg ilyen sokáig fut-e.
 
-Valamiért nem tudja behúzni az osztályokat ide, úgyhogy nootbookba raktam be ezt a részt és ide csak átmásoltam, ott működik. 
+Valamiért nem tudja behúzni az osztályokat ide, úgyhogy notebookba raktam be ezt a részt és ide csak átmásoltam, ott működik. 
 
 A legtöbb fit 78-80% közé esett. ( split és depth 2-5 között, majd split 25, 50 és depth 5, 11) 
 
