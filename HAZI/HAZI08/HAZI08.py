@@ -79,9 +79,10 @@ függvény neve: logistic_train_data
 # %%
 #4
 def logistic_train_data(iris):
-    
-
-    return X, y
+    df = pd.DataFrame(iris.data, columns=iris.feature_names)
+    X = df.loc[np.where(iris.target <2)].values
+    y = iris.target[np.where(iris.target < 2)]
+    return (X, y)
 
 # %%
 '''
@@ -97,7 +98,9 @@ függvény neve: split_data
 # %%
 #5
 def split_data(X, y):
-    ...
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    return(X_train, X_test, y_train, y_test)
+
 
 # %%
 '''
@@ -112,7 +115,8 @@ függvény neve: train_linear_regression
 # %%
 #6
 def train_linear_regression(X_train, y_train):
-    ...
+    xc = LinearRegression()
+    return xc.fit(X_train, y_train)
 
 # %%
 '''
@@ -127,7 +131,8 @@ függvény neve: train_logistic_regression
 # %%
 #7 
 def train_logistic_regression(X_train, y_train):
-    ...
+    xc = LogisticRegression()
+    return xc.fit(X_train, y_train)
 
 # %%
 ''' 
@@ -142,7 +147,7 @@ függvény neve: predict
 # %%
 #8 
 def predict(model, X_test):
-    ...
+    return model.predict(X_test)
 
 # %%
 '''
@@ -162,7 +167,14 @@ függvény neve: plot_actual_vs_predicted
 # %%
 #9
 def plot_actual_vs_predicted(y_test, y_pred):
-    ...
+    fig, ax = plt.subplots()
+
+    ax.set_title('Actual vs Predicted Target Values')
+    ax.set_xlabel('Actual')
+    ax.set_ylabel('Predicted')
+    ax.scatter(y_test, y_pred)
+
+    return fig
 
 # %%
 ''' 
@@ -177,6 +189,7 @@ függvény neve: evaluate_model
 # %%
 #10
 def evaluate_model(y_test, y_pred):
-    ...
+    xc = mean_squared_error(y_test, y_pred)
+    return xc
 
 
