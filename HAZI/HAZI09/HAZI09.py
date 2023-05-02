@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
-import sklearn.datasets
+from sklearn.datasets import load_digits
 import pandas as pd
 import numpy as np
 from sklearn.cluster import KMeans
@@ -14,17 +14,17 @@ class KMeansOnDigits:
         self.random_state = random_state
 
     def load_dataset(self):
-        self.digits = sklearn.datasets.load_digits()
+        self.digits = load_digits()
 
     def predict(self):
-        model = KMeans(n_clusters=self.n_clusters, random_state=self.random_state)
-        self.clusters = model.fit(self.digits.data)
+        self.model = KMeans(n_clusters=self.n_clusters, random_state=self.random_state)
+        self.clusters = self.model.fit(self.digits.data)
 
     def get_labels(self):
         res = np.zeros_like(self.clusters)
-        for c in range(10): #0-9
+        for c in range(self.n_clusters):
             mask = (self.clusters == c)
-            xc = np.bincount(self.digits.target[mask]).argmax()
+            xc = np.argmax(np.bincount(self.digits.target[mask]))
             res[mask] = xc
         self.labels = res
 
