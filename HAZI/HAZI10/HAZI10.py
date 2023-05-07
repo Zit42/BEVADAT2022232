@@ -17,7 +17,7 @@ def mnist_digit_data():
     (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
     return train_images/255.0, train_labels, test_images/255.0, test_labels
 
-mnist_digit_data()
+#mnist_digit_data()
 
 # %%
 '''
@@ -40,7 +40,7 @@ def mnist_model():
         tf.keras.layers.Dense(10, activation='softmax')
         ])
     return model
-model = mnist_model()
+#model = mnist_model()
 #print(model)
 
 # %%
@@ -60,7 +60,7 @@ függvény neve: model_compile
 def model_compile(model):
     model.compile(optimizer='Adam', loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), metrics=['accuracy'])
     return model
-model_compile(model)
+#model_compile(model)
 
 # %%
 '''
